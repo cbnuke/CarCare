@@ -35,7 +35,7 @@ class login extends CI_Controller {
                 $temp = $this->m_login->get_post();
                 if ($this->m_login->login($temp)) {
                     $this->session->unset_tempdata('login_fail');
-                    redirect('home');
+                    redirect('admin/home');
                 } else {
                     $data['login_fail'] = TRUE;
                     $this->session->unset_tempdata('login_fail');
@@ -48,7 +48,7 @@ class login extends CI_Controller {
         $data['form_action'] = form_open('login', array('class' => 'form-signin'));
         $data['form_input'] = $this->m_login->set_form();
 
-        $this->load->view('customer/login', $data);
+        $this->load->view('admin/login', $data);
     }
 
 }

@@ -49,7 +49,7 @@ Class M_template extends CI_Model {
         }
     }
 
-    function showTemplate() {
+    function showCustomer() {
         //Check login
         $this->check_permission();
 
@@ -94,12 +94,65 @@ Class M_template extends CI_Model {
         $data_nav['alert'] = $this->session->userdata('alert');
         $this->session->unset_userdata('alert');
 
-        $this->load->view('theme_header', $data);
-        $this->load->view('theme_nav', $data_nav);
+        $this->load->view('customer/theme_header', $data);
+        $this->load->view('customer/theme_nav', $data_nav);
         if ($this->view_name != NULL) {
             $this->load->view($this->view_name, $data_view);
         }
-        $this->load->view('theme_footer');
+        $this->load->view('customer/theme_footer');
+    }
+    
+    function showAdmin() {
+        //Check login
+        $this->check_permission();
+
+        //Load version for Cache CSS and JS
+        $data['version'] = $this->version;
+
+
+
+        $user = $this->session->userdata('user');
+//        Old
+//        $data['u_name'] = $user['u_name'];
+//        $data['form_login'] = form_open('logout', array('class' => 'navbar-form pull-right', 'style' => 'height: 40px;'));
+
+        $data['title'] = $this->title;
+//        $data['debug'] = $this->debud_data;
+//        $data['breadcrumb'] = $this->breadcrumb_data;
+        //Data to view
+        $data_view = $this->set_data;
+        $data_view += $this->breadcrumb_data;
+
+        //Data to nav
+        $data_nav['debug'] = $this->debud_data;
+        $data_nav['page'] = $this->uri->segment(1);
+        $data_nav['subpage'] = $this->uri->segment(2);
+
+        $data_nav['name'] = $this->session->userdata('name');
+        $data_nav['position'] = $this->session->userdata('position');
+        $data_nav['per_name'] = $this->session->userdata('per_name');
+        $data_nav['per_value'] = $this->session->userdata('per_value');
+        $data_nav['picture'] = $this->session->userdata('picture');
+
+        //Load Notifications to nav
+        $id_users = $this->session->userdata('id_users');
+//        $data_nav['notifications'] = $this->m_api->checkNotificationsByUser($id_users);
+        
+        //Load Task to nav
+        $id_users = $this->session->userdata('id_users');
+//        $data_nav['task'] = $this->m_api->checkTaskByUser($id_users);
+
+
+        //--- Alert System ---//
+        $data_nav['alert'] = $this->session->userdata('alert');
+        $this->session->unset_userdata('alert');
+
+        $this->load->view('admin/theme_header', $data);
+        $this->load->view('admin/theme_nav', $data_nav);
+        if ($this->view_name != NULL) {
+            $this->load->view($this->view_name, $data_view);
+        }
+        $this->load->view('admin/theme_footer');
     }
 
 }

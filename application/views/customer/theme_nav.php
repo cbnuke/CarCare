@@ -73,22 +73,11 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li <?= ($page == 'C1_home') ? 'class="active"' : '' ?>>
-                    <?= anchor('home', '<i class="fa fa-home fa-fw"></i> <span>เพิ่มบริการ</span>') ?>
+                    <?= anchor('home', '<i class="fa fa-home fa-fw"></i> <span>ดูข้อมูลการเข้าใช้บริการ</span>') ?>
                 </li>
-                <li class="treeview <?= ($page == 'setting') ? 'active' : '' ?>">
-                    <a href="#">
-                        <i class="fa fa-cogs"></i>
-                        <span>จัดการข้อมูล</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลส่วนตัว') ?></li>
-                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลสินค้า') ?></li>
-                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลบริการ') ?></li>  
-                    </ul>
+                <li <?= ($page == 'C1_home') ? 'class="active"' : '' ?>>
+                    <?= anchor('home', '<i class="fa fa-home fa-fw"></i> <span>แก้ไขข้มูลส่วนตัว</span>') ?>
                 </li>
-
             </ul>
         </section>
         <!-- /.sidebar -->

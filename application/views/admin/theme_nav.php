@@ -73,7 +73,7 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li <?= ($page == 'C1_home') ? 'class="active"' : '' ?>>
-                    <?= anchor('home', '<i class="fa fa-home fa-fw"></i> <span>เพิ่มบริการ</span>') ?>
+                    <?= anchor('home', '<i class="fa fa-home fa-fw"></i> <span>เพิ่มการขาย</span>') ?>
                 </li>
                 <li class="treeview <?= ($page == 'setting') ? 'active' : '' ?>">
                     <a href="#">

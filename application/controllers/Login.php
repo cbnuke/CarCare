@@ -33,7 +33,7 @@ class login extends CI_Controller {
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
             if ($this->m_login->set_validation() && $this->form_validation->run()) {
                 $temp = $this->m_login->get_post();
-                if ($this->m_login->login($temp)) {
+                if ($this->m_login->loginCustomer($temp)) {
                     $this->session->unset_tempdata('login_fail');
                     redirect('home');
                 } else {

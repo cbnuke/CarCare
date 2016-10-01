@@ -35,10 +35,17 @@ Class M_template extends CI_Model {
         $this->permission = $mode;
     }
 
-    function check_permission() {
-        $sess = $this->session->userdata('login');
-        if ($sess == NULL || $sess == FALSE) {
-            redirect('login');
+    function check_permission($type = 'customer') {
+        if ($type == 'customer') {
+            $sess = $this->session->userdata('Login_customer');
+            if ($sess == NULL || $sess == FALSE) {
+                redirect('login');
+            }
+        } elseif ($type == 'admin') {
+            $sess = $this->session->userdata('Login_admin');
+            if ($sess == NULL || $sess == FALSE) {
+                redirect('admin/login');
+            }
         }
         return TRUE;
     }
@@ -51,7 +58,7 @@ Class M_template extends CI_Model {
 
     function showCustomer() {
         //Check login
-        $this->check_permission();
+        $this->check_permission('customer');
 
         //Load version for Cache CSS and JS
         $data['version'] = $this->version;
@@ -84,12 +91,9 @@ Class M_template extends CI_Model {
         //Load Notifications to nav
         $id_users = $this->session->userdata('id_users');
 //        $data_nav['notifications'] = $this->m_api->checkNotificationsByUser($id_users);
-        
         //Load Task to nav
         $id_users = $this->session->userdata('id_users');
 //        $data_nav['task'] = $this->m_api->checkTaskByUser($id_users);
-
-
         //--- Alert System ---//
         $data_nav['alert'] = $this->session->userdata('alert');
         $this->session->unset_userdata('alert');
@@ -101,10 +105,10 @@ Class M_template extends CI_Model {
         }
         $this->load->view('customer/theme_footer');
     }
-    
+
     function showAdmin() {
         //Check login
-        $this->check_permission();
+        $this->check_permission('admin');
 
         //Load version for Cache CSS and JS
         $data['version'] = $this->version;
@@ -137,12 +141,9 @@ Class M_template extends CI_Model {
         //Load Notifications to nav
         $id_users = $this->session->userdata('id_users');
 //        $data_nav['notifications'] = $this->m_api->checkNotificationsByUser($id_users);
-        
         //Load Task to nav
         $id_users = $this->session->userdata('id_users');
 //        $data_nav['task'] = $this->m_api->checkTaskByUser($id_users);
-
-
         //--- Alert System ---//
         $data_nav['alert'] = $this->session->userdata('alert');
         $this->session->unset_userdata('alert');

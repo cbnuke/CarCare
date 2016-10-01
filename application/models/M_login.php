@@ -5,14 +5,6 @@ if (!defined('BASEPATH'))
 
 class M_login extends CI_Model {
 
-    function updateLastLogin($id_users) {
-        $format = 'DATE_W3C';
-        $time = time();
-        $datetime = standard_date($format, $time);
-        $this->db->where('id_users', $id_users);
-        $this->db->update('users', array('last_login' => $datetime));
-    }
-
     function set_form() {
         $i_user = array(
             'name' => 'user',
@@ -47,69 +39,88 @@ class M_login extends CI_Model {
         return $get_page_data;
     }
 
-    function check_user($user, $pass) {
-        $this->db->from('users');
-        $this->db->join('permission', 'permission.id_permission=users.id_permission');
-        $this->db->where('id_users', $user);
-        $this->db->where('pass', md5($pass));
+    function checkCustomer($user, $pass) {
+        $this->db->from('User');
+        $this->db->where('User_Username', $user);
+        $this->db->where('User_Password', md5($pass));
         $query = $this->db->get();
         if ($query->num_rows() == 1) {
-            return $query->result_array()[0];
-            ;
+            return $query->first_row('array');
         } else {
             return FALSE;
         }
     }
 
-    function login($data) {
+    function checkAdmin($user, $pass) {
+        $this->db->from('UserAdmin');
+        $this->db->where('UserAdmin_Username', $user);
+        $this->db->where('UserAdmin_Password', md5($pass));
+        $query = $this->db->get();
+        if ($query->num_rows() == 1) {
+            return $query->first_row('array');
+        } else {
+            return FALSE;
+        }
+    }
+
+    function loginCustomer($data) {
         //Intial data
         $session = array(
-            'id_users' => 'admin',
-            'OfficialID' => '',
-            'name' => 'Admin',
-            'position' => 'administrator',
-            'per_name' => 'ผู้ดูแลระบบ',
-            'per_value' => 'all',
-            'picture' => 'avatar5.png',
-            'login' => FALSE
+            'User_ID' => '',
+            'User_Username' => '',
+            'User_Firstname' => '',
+            'User_Lastname' => '',
+            'User_Email' => '',
+            'User_Picture' => '',
+            'Login_customer' => FALSE
         );
 
-        $session['login'] = TRUE;
-        $this->session->set_userdata($session);
-        return TRUE;
-
-        $temp_user = $this->check_user($data['user'], $data['pass']);
+        //Check customer
+        $temp_user = $this->checkCustomer($data['user'], $data['pass']);
 
         if ($temp_user != FALSE) {
-            $session['id_users'] = $data['user'];
-            $session['name'] = $temp_user['title'] . $temp_user['name'] . ' ' . $temp_user['surname'];
-            $session['position'] = $temp_user['position'];
-            $session['per_name'] = $temp_user['per_name'];
-            $session['per_value'] = $temp_user['per_value'];
-            if ($temp_user['picture'] == NULL || $temp_user['picture'] == "NULL") {
-                $img = 'avatar5.png';
-            } else {
-                $img = $temp_user['picture'];
+            $session['User_ID'] = $temp_user['User_ID'];
+            $session['User_Username'] = $temp_user['User_Username'];
+            $session['User_Firstname'] = $temp_user['User_Firstname'];
+            $session['User_Lastname'] = $temp_user['User_Lastname'];
+            $session['User_Email'] = $temp_user['User_Email'];
+            if ($temp_user['User_Picture'] == NULL || $temp_user['User_Picture'] == "NULL") {
+                $session['User_Picture'] = 'avatar5.png';
             }
-
-            //Check OfficialID from official
-            $query = $this->db->get_where('official', array('id_users' => $data['user']));
-            if ($query->num_rows() > 0) {
-                $temp = $query->first_row('array');
-                $session['OfficialID'] = $temp['OfficialID'];
-            }
-
-
-            $session['picture'] = $img;
-            $session['login'] = TRUE;
+            $session['Login_customer'] = TRUE;
             $this->session->set_userdata($session);
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
 
-            //Update last login
-            $this->updateLastLogin($data['user']);
+    function loginAdmin($data) {
+        //Intial data
+        $session = array(
+            'UserAdmin_ID' => '',
+            'UserAdmin_Username' => '',
+            'UserAdmin_Firstname' => '',
+            'UserAdmin_Lastname' => '',
+            'UserAdmin_Email' => '',
+            'UserAdmin_Picture' => '',
+            'Login_admin' => FALSE
+        );
 
-            //loginLog
-            $this->m_systemlog->loginLog();
+        //Check admin
+        $temp_user = $this->checkAdmin($data['user'], $data['pass']);
 
+        if ($temp_user != FALSE) {
+            $session['UserAdmin_ID'] = $temp_user['UserAdmin_ID'];
+            $session['UserAdmin_Username'] = $temp_user['UserAdmin_Username'];
+            $session['UserAdmin_Firstname'] = $temp_user['UserAdmin_Firstname'];
+            $session['UserAdmin_Lastname'] = $temp_user['UserAdmin_Lastname'];
+            $session['UserAdmin_Email'] = $temp_user['UserAdmin_Email'];
+            if ($temp_user['UserAdmin_Picture'] == NULL || $temp_user['UserAdmin_Picture'] == "NULL") {
+                $session['UserAdmin_Picture'] = 'avatar5.png';
+            }
+            $session['Login_admin'] = TRUE;
+            $this->session->set_userdata($session);
             return TRUE;
         } else {
             return FALSE;

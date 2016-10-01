@@ -38,10 +38,7 @@ class Home extends CI_Controller {
 //        $this->m_template->set_Debug($data['list_analysis']);
 //        $this->m_template->set_Debug($this->session->userdata());
         $this->m_template->set_Content('admin/home/main', $data);
-        $this->m_template->showCustomer();
+        $this->m_template->showAdmin();
     }
 
 }
-
-/* End of file C1_home.php */
-/* Location: ./application/controllers/C1_home.php */

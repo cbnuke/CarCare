@@ -83,9 +83,9 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลส่วนตัว') ?></li>
-                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลสินค้า') ?></li>
-                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลบริการ') ?></li>  
+                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('admin/', '<i class="fa fa-angle-double-right"></i> ข้อมูลส่วนตัว') ?></li>
+                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('admin/product', '<i class="fa fa-angle-double-right"></i> ข้อมูลสินค้า') ?></li>
+                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('admin/Service', '<i class="fa fa-angle-double-right"></i> ข้อมูลบริการ') ?></li>  
                     </ul>
                 </li>
 

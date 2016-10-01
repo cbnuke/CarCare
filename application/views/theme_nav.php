@@ -73,7 +73,7 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li <?= ($page == 'C1_home') ? 'class="active"' : '' ?>>
-                    <?= anchor('home', '<i class="fa fa-home fa-fw"></i> <span>เพิ่มงาน</span>') ?>
+                    <?= anchor('home', '<i class="fa fa-home fa-fw"></i> <span>เพิ่มบริการ</span>') ?>
                 </li>
                 <li class="treeview <?= ($page == 'setting') ? 'active' : '' ?>">
                     <a href="#">
@@ -83,15 +83,13 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลสมาชิก') ?></li>
+                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลส่วนตัว') ?></li>
                         <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลสินค้า') ?></li>
                         <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลบริการ') ?></li>
-
+                        
                     </ul>
                 </li>
-                <li <?= ($page == 'C1_home') ? 'class="active"' : '' ?>>
-                    <?= anchor('home', '<i class="fa fa-home fa-fw"></i> <span>ดูรายงาน</span>') ?>
-                </li>
+
             </ul>
         </section>
         <!-- /.sidebar -->

@@ -4,7 +4,7 @@
         <!-- Add the class icon to your logo image or logo icon to add the margining 
         ระบบ DNA {elapsed_time}
         -->
-        ระบบสารสนเทศ ศพฐ.๔
+        ระบบคาร์แคร์
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -73,122 +73,20 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li <?= ($page == 'C1_home') ? 'class="active"' : '' ?>>
-                    <?= anchor('C1_home', '<i class="fa fa-home fa-fw"></i> <span>หน้าหลัก</span>') ?>
+                    <?= anchor('home', '<i class="fa fa-home fa-fw"></i> <span>เพิ่มบริการ</span>') ?>
                 </li>
-                <?php if (strpos($per_value, 'C1Noti') !== FALSE || $per_value == "ALL") { ?>
-                    <li <?= ($page == 'C1_Notice') ? 'class="active"' : '' ?>>
-                        <?= anchor('C1_Notice', '<i class="fa fa-bullhorn"></i> <span>พงส.แจ้งเหตุ</span>') ?>
-                    </li>
-                <?php } ?>
-                <?php if (strpos($per_value, 'C1Assi') !== FALSE || $per_value == "ALL") { ?>
-                    <li <?= ($page == 'C1_Assign') ? 'class="active"' : '' ?>>
-                        <?= anchor('C1_Assign', '<i class="fa fa-pencil fa-fw"></i> <span>ศูนย์รับแจ้งเหตุ</span>') ?>
-                    </li>
-                <?php } ?>
-                <?php if (strpos($per_value, 'C1CSI') !== FALSE || $per_value == "ALL") { ?>
-                    <li <?= ($page == 'C1_CSI') ? 'class="active"' : '' ?>>
-                        <?= anchor('C1_CSI', '<i class="fa fa-check-circle"></i> <span>ผู้ตรวจสถานที่เกิดเหตุ</span>') ?>
-                    </li>
-                <?php } ?>
-
-                <?php if (strpos($per_value, 'known') !== FALSE || strpos($per_value, 'C2CoMM') !== FALSE || strpos($per_value, 'C2CoMP') !== FALSE || strpos($per_value, 'C2CoMT') !== FALSE || $per_value == "ALL") { ?>
-                    <li class="treeview <?= ($page == 'C2_Command') ? 'active' : '' ?>">
-                        <a href="#">
-                            <i class="fa fa-spinner fa-spin"></i>
-                            <span>ศูนย์ควบคุมสั่งการ</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <?php if (strpos($per_value, 'known') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'known') ? 'class="active"' : '' ?>><?= anchor('systemdb/known', '<i class="fa fa-eye"></i> ติดตามงาน') ?></li>
-                            <?php } ?>
-                            <?php if (strpos($per_value, 'C2CoMM') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'MapMarker') ? 'class="active"' : '' ?>><?= anchor('C2_Command/MapMarker', '<i class="fa fa-dot-circle-o"></i> แผนที่ - Marker') ?></li>
-                            <?php } ?>
-                            <?php if (strpos($per_value, 'C2CoMP') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'MapPolygon') ? 'class="active"' : '' ?>><?= anchor('C2_Command/MapPolygon', '<i class="fa fa-dot-circle-o"></i> แผนที่ - Polygon') ?></li>
-                            <?php } ?>
-                            <?php if (strpos($per_value, 'C2CoMT') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'MapTime') ? 'class="active"' : '' ?>><?= anchor('C2_Command/MapTime', '<i class="fa fa-pie-chart"></i> นาฬิกาอาชญากรรม') ?></li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                <?php } ?>
-                <?php if (strpos($per_value, 'KN') !== FALSE || strpos($per_value, 'UN') !== FALSE || strpos($per_value, 'QU') !== FALSE || $per_value == "ALL") { ?>
-    <!--                    <li class="treeview <?= ($page == '') ? 'active' : '' ?>">
-                        <a href="#">
-                            <i class="fa fa-spinner fa-spin"></i>
-                            <span>หน่วยงานที่เกี่ยวข้อง</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                    <?php if (strpos($per_value, 'UN') !== FALSE || $per_value == "ALL") { ?>
-                                            <li <?= ($subpage == 'unknown') ? 'class="active"' : '' ?>><?= anchor('', '<i class="fa fa-user"></i> หน่วยงานระดับ บช.') ?></li>
-                    <?php } ?>
-                    <?php if (strpos($per_value, 'UN') !== FALSE || $per_value == "ALL") { ?>
-                                            <li <?= ($subpage == 'unknown') ? 'class="active"' : '' ?>><?= anchor('', '<i class="fa fa-user"></i> หน่วยงานระดับ บก.') ?></li>
-                    <?php } ?>
-                    <?php if (strpos($per_value, 'UN') !== FALSE || $per_value == "ALL") { ?>
-                                            <li <?= ($subpage == 'unknown') ? 'class="active"' : '' ?>><?= anchor('', '<i class="fa fa-user"></i> หน่วยงานระดับ กก.') ?></li>
-                    <?php } ?>
-                        </ul>
-                    </li>-->
-                <?php } ?>
-
-                <?php if (strpos($per_value, 'AS') !== FALSE || strpos($per_value, 'C1ScMa') !== FALSE || strpos($per_value, 'C2InCa') !== FALSE || strpos($per_value, 'C2InAm') !== FALSE || strpos($per_value, 'C2InPr') !== FALSE || strpos($per_value, 'C2InMa') !== FALSE || strpos($per_value, 'C2InPD') !== FALSE || strpos($per_value, 'C2InPT') !== FALSE || $per_value == "ALL") { ?>
-                    <li class="treeview <?= ($page == 'C2_Information') ? 'active' : '' ?>">
-                        <a href="#">
-                            <i class="fa fa-archive"></i>
-                            <span>ข้อมูลในระบบ</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <?php if (strpos($per_value, 'AS') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'unknown') ? 'class="active"' : '' ?>><?= anchor('', '<i class="fa fa-user"></i> รายชื่อเจ้าหน้าที่ตำรวจ') ?></li>
-                            <?php } ?>
-                            <?php if (strpos($per_value, 'C1ScMa') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'known') ? 'class="active"' : '' ?>><?= anchor('C1_Schedule/main', '<i class="fa fa-list-alt"></i> ตารางเวรตรวจที่เกิดเหตุ') ?></li>
-                            <?php } ?>
-                            <?php if (strpos($per_value, 'C2InCa') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'CaseType') ? 'class="active"' : '' ?>><?= anchor('C2_Information/CaseType', '<i class="fa fa-user"></i> ประเภทคดี') ?></li>
-                            <?php } ?>
-                            <?php if (strpos($per_value, 'C2InAm') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'Amphur') ? 'class="active"' : '' ?>><?= anchor('C2_Information/Amphur', '<i class="fa fa-user"></i> ข้อมูลอำเภอ') ?></li>
-                            <?php } ?>
-                            <?php if (strpos($per_value, 'C2InPr') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'Province') ? 'class="active"' : '' ?>><?= anchor('C2_Information/Province', '<i class="fa fa-user"></i> ข้อมูลจังหวัด') ?></li>
-                            <?php } ?>
-                            <?php if (strpos($per_value, 'C2InMa') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'MapSetting') ? 'class="active"' : '' ?>><?= anchor('C2_Information/MapSetting', '<i class="fa fa-user"></i> การแสดงผลหลัก') ?></li>
-                            <?php } ?>
-                            <?php if (strpos($per_value, 'C2InPD') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'PlaceData') ? 'class="active"' : '' ?>><?= anchor('C2_Information/PlaceData', '<i class="fa fa-user"></i> ข้อมูลสถานที่') ?></li>
-                            <?php } ?>
-                            <?php if (strpos($per_value, 'C2InPT') !== FALSE || $per_value == "ALL") { ?>
-                                <li <?= ($subpage == 'PlaceType') ? 'class="active"' : '' ?>><?= anchor('C2_Information/PlaceType', '<i class="fa fa-user"></i> ประเภทสถานที่') ?></li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                <?php } ?>
                 <li class="treeview <?= ($page == 'setting') ? 'active' : '' ?>">
                     <a href="#">
                         <i class="fa fa-cogs"></i>
-                        <span>ตั้งค่าระบบ</span>
+                        <span>จัดการข้อมูล</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
 
                         <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลส่วนตัว') ?></li>
-
-                        <?php if (strpos($per_value, 'SeUs') !== FALSE || $per_value == "ALL") { ?>
-                            <li <?= ($subpage == 'user') ? 'class="active"' : '' ?>><?= anchor('setting/user', '<i class="fa fa-angle-double-right"></i> ผู้ใช้งาน') ?></li>
-                        <?php } ?>
-                        <?php if (strpos($per_value, 'SeUsPe') !== FALSE || $per_value == "ALL") { ?>
-                            <li <?= ($subpage == 'user_permit') ? 'class="active"' : '' ?>><?= anchor('setting/user_permit', '<i class="fa fa-angle-double-right"></i> กำหนดสิทธิ') ?></li>
-                        <?php } ?>
-                        <?php if (strpos($per_value, 'SeIn') !== FALSE || $per_value == "ALL") { ?>
-                            <li <?= ($subpage == 'init') ? 'class="active"' : '' ?>><?= anchor('setting/init', '<i class="fa fa-angle-double-right"></i> ตั้งค่าข้อมูลเริ่มต้น') ?></li>
-                        <?php } ?>
+                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลสินค้า') ?></li>
+                        <li <?= ($subpage == 'user_info') ? 'class="active"' : '' ?>><?= anchor('setting/user_info', '<i class="fa fa-angle-double-right"></i> ข้อมูลบริการ') ?></li>
+                        
                     </ul>
                 </li>
 

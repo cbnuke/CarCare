@@ -11,12 +11,7 @@ class login extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('m_template');
-        $this->load->model('m_login');
-        $this->load->library('form_validation');
-        $this->load->helper('form');
-
-        //Initial language
-        $this->m_template->set_Language(array('plan'));
+        $this->load->model('backend/m_login');
 
         //Count Login fail
         if ($this->session->tempdata('login_fail') == NULL) {
@@ -31,11 +26,11 @@ class login extends CI_Controller {
         }
 
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
-            if ($this->m_login->set_validation() && $this->form_validation->run()) {
+            if ($this->m_login->set_validation()) {
                 $temp = $this->m_login->get_post();
-                if ($this->m_login->loginAdmin($temp)) {
+                if ($this->m_login->loginProcess($temp)) {
                     $this->session->unset_tempdata('login_fail');
-                    redirect('admin/home');
+                    redirect('backend/home');
                 } else {
                     $data['login_fail'] = TRUE;
                     $this->session->unset_tempdata('login_fail');
@@ -45,10 +40,10 @@ class login extends CI_Controller {
                 $data['login_request'] = TRUE;
             }
         }
-        $data['form_action'] = form_open('login', array('class' => 'form-signin'));
+        $data['form_action'] = form_open('backend/login', array('class' => 'form-signin'));
         $data['form_input'] = $this->m_login->set_form();
 
-        $this->load->view('admin/login', $data);
+        $this->load->view('backend/login', $data);
     }
 
 }

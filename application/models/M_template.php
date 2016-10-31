@@ -56,6 +56,12 @@ Class M_template extends CI_Model {
         }
     }
 
+    function showWeb() {
+        if ($this->view_name != NULL) {
+            $this->load->view($this->view_name, $this->set_data);
+        }
+    }
+
     function showCustomer() {
         //Check login
         $this->check_permission('customer');

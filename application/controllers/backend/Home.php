@@ -24,7 +24,7 @@ class Home extends CI_Controller {
     }
 
     private function customer() {
-          $data = array(
+        $data = array(
 //            'list_accept' => $this->m1_home->checkYourAcceptList(),
 //            'list_close' => $this->m1_home->checkYourCloseCaseList(),
 //            'list_analysis' => $this->m1_home->checkYourAnalysisCaseList(),
@@ -33,7 +33,7 @@ class Home extends CI_Controller {
 
         $data_nav['pagetitle'] = array(
             'big' => 'หน้าหลัก',
-            'small' => 'เจ้าหน้าที่'
+            'small' => 'ลูกค้า'
         );
         $data_nav['breadcrumb'] = array(
             '0' => array(
@@ -43,13 +43,13 @@ class Home extends CI_Controller {
             ),
             '1' => array(
                 'icon' => '',
-                'text' => '2',
+                'text' => 'ลูกค้า',
                 'link' => ''
             ),
         );
-//        $this->m_template->set_Title('ทดสอบ');
+        //$this->m_template->set_Title('ทดสอบ');
         $this->m_template->set_Breadcrumb($data_nav);
-//        $this->m_template->set_Debug($sess);
+        //$this->m_template->set_Debug($sess);
         $this->m_template->set_Content('backend/admin/home', $data);
         $this->m_template->showCustomer();
     }
@@ -74,13 +74,13 @@ class Home extends CI_Controller {
             ),
             '1' => array(
                 'icon' => '',
-                'text' => '2',
+                'text' => 'เจ้าหน้าที่',
                 'link' => ''
             ),
         );
-//        $this->m_template->set_Title('ทดสอบ');
+        //$this->m_template->set_Title('ทดสอบ');
         $this->m_template->set_Breadcrumb($data_nav);
-//        $this->m_template->set_Debug($sess);
+        //$this->m_template->set_Debug($sess);
         $this->m_template->set_Content('backend/admin/home', $data);
         $this->m_template->showAdmin();
     }

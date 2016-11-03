@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>CSI</title>
+        <title>ร้านบ้านคาร์แคร์ Ban Car Care</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link rel="apple-touch-icon-precomposed" sizes="144x144"
               href="<?= img_url() . 'apple-touch-icon-144-precomposed.png' ?>">

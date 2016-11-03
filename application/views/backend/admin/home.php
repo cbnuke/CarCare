@@ -1,81 +1,132 @@
 <!-- Main content -->
 <section class="content">
+    <!-- Small boxes (Stat box) -->
     <div class="row">
-        <div class="col-md-6">
-            <div class="box box-default">
-                <div class="box-header with-border">
-                    <i class="fa fa-warning"></i>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>150</h3>
 
-                    <h3 class="box-title">Alerts</h3>
+                    <p>New Orders</p>
                 </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h4><i class="icon fa fa-ban"></i> Alert!</h4>
-                        Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my entire
-                        soul, like these sweet mornings of spring which I enjoy with my whole heart.
-                    </div>
-                    <div class="alert alert-info alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h4><i class="icon fa fa-info"></i> Alert!</h4>
-                        Info alert preview. This alert is dismissable.
-                    </div>
-                    <div class="alert alert-warning alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h4><i class="icon fa fa-warning"></i> Alert!</h4>
-                        Warning alert preview. This alert is dismissable.
-                    </div>
-                    <div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h4><i class="icon fa fa-check"></i> Alert!</h4>
-                        Success alert preview. This alert is dismissable.
-                    </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
                 </div>
-                <!-- /.box-body -->
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
-            <!-- /.box -->
         </div>
-        <!-- /.col -->
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-        <div class="col-md-6">
-            <div class="box box-default">
-                <div class="box-header with-border">
-                    <i class="fa fa-bullhorn"></i>
-
-                    <h3 class="box-title">Callouts</h3>
+                    <p>Bounce Rate</p>
                 </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <div class="callout callout-danger">
-                        <h4>I am a danger callout!</h4>
-
-                        <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul,
-                            like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                    </div>
-                    <div class="callout callout-info">
-                        <h4>I am an info callout!</h4>
-
-                        <p>Follow the steps to continue to payment.</p>
-                    </div>
-                    <div class="callout callout-warning">
-                        <h4>I am a warning callout!</h4>
-
-                        <p>This is a yellow callout.</p>
-                    </div>
-                    <div class="callout callout-success">
-                        <h4>I am a success callout!</h4>
-
-                        <p>This is a green callout.</p>
-                    </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
                 </div>
-                <!-- /.box-body -->
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
-            <!-- /.box -->
         </div>
-        <!-- /.col -->
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>44</h3>
+
+                    <p>User Registrations</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>65</h3>
+
+                    <p>Unique Visitors</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
     </div>
     <!-- /.row -->
-    <!-- END ALERTS AND CALLOUTS -->
+    <!-- Main row -->
+    <div class="row">
+
+        <section class="col-md-12">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="nav-tabs-custom">
+                <!-- Tabs within a box -->
+                <ul class="nav nav-tabs pull-right">
+                    <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
+                    <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
+                    <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
+                </ul>
+                <div class="tab-content no-padding">
+                    <!-- Morris chart - Sales -->
+                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
+                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+                </div>
+            </div>
+            <!-- /.nav-tabs-custom -->
+        </section>
+    </div>
+    <!-- /.row (main row) -->
+
 </section>
 <!-- /.content -->
+<script>
+    $(function () {
+        "use strict";
+
+        // AREA CHART
+        var area = new Morris.Area({
+            element: 'revenue-chart',
+            resize: true,
+            data: [
+                {y: '2011 Q1', item1: 2666, item2: 2666},
+                {y: '2011 Q2', item1: 2778, item2: 2294},
+                {y: '2011 Q3', item1: 4912, item2: 1969},
+                {y: '2011 Q4', item1: 3767, item2: 3597},
+                {y: '2012 Q1', item1: 6810, item2: 1914},
+                {y: '2012 Q2', item1: 5670, item2: 4293},
+                {y: '2012 Q3', item1: 4820, item2: 3795},
+                {y: '2012 Q4', item1: 15073, item2: 5967},
+                {y: '2013 Q1', item1: 10687, item2: 4460},
+                {y: '2013 Q2', item1: 8432, item2: 5713}
+            ],
+            xkey: 'y',
+            ykeys: ['item1', 'item2'],
+            labels: ['Item 1', 'Item 2'],
+            lineColors: ['#a0d0e0', '#3c8dbc'],
+            hideHover: 'auto'
+        });
+
+        //DONUT CHART
+        var donut = new Morris.Donut({
+            element: 'sales-chart',
+            resize: true,
+            colors: ["#3c8dbc", "#f56954", "#00a65a"],
+            data: [
+                {label: "Download Sales", value: 12},
+                {label: "In-Store Sales", value: 30},
+                {label: "Mail-Order Sales", value: 20}
+            ],
+            hideHover: 'auto'
+        });
+    });
+</script>

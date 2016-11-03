@@ -12,6 +12,10 @@
         <?= css('skins/_all-skins.min.css') ?>
         <?= css('font-awesome.min.css') ?>
         <?= css('animate.css') ?>
+        <?= css('../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') ?>
+        <?= css('../plugins/datatables/dataTables.bootstrap.css') ?>
+        <?= css('../plugins/select2/select2.min.css') ?>
+        <?= css('../plugins/morris/morris.css') ?>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,8 +27,13 @@
         <?= js('jquery.min.js') ?>
         <?= js('bootstrap.min.js') ?>
         <?= js('app.min.js') ?>
+        <?= js('../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') ?>
+        <?= js('../plugins/datatables/jquery.dataTables.min.js') ?>
+        <?= js('../plugins/datatables/dataTables.bootstrap.min.js') ?>
+        <?= js('../plugins/select2/select2.full.min.js') ?>
+        <?= js('../plugins/morris/raphael.min.js') ?>
+        <?= js('../plugins/morris/morris.min.js') ?>
 
     </head>
     <body class="skin-blue sidebar-mini">
         <div class="wrapper">
-            

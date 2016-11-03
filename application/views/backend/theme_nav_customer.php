@@ -72,7 +72,7 @@
                     <i class="fa fa-home"></i> <span>หน้าหลัก</span>
                 </a>
             </li>
-            <li <?= ($page == 'customer') ? 'class="active"' : '' ?>>
+            <li <?= ($page == 'service') ? 'class="active"' : '' ?>>
                 <a href="<?= base_url('backend/customer') ?>">
                     <i class="fa fa-cart-plus"></i> <span>ตรวจสอบการบริการ</span>
                 </a>

@@ -3,41 +3,39 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Product extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
         $this->load->model('m_template');
-        $this->load->library('form_validation');
+        $this->load->model('backend/m_product');
     }
 
     public function index() {
         $data = array(
-//            'list_accept' => $this->m1_home->checkYourAcceptList(),
-//            'list_close' => $this->m1_home->checkYourCloseCaseList(),
-//            'list_analysis' => $this->m1_home->checkYourAnalysisCaseList(),
-//            'list_compare' => $this->m1_home->checkYourCompareCaseList()
+            'list_product' => $this->m_product->list_product()
         );
 
         $data_nav['pagetitle'] = array(
-            'big' => '',
-            'small' => ''
+            'big' => 'สินค้า',
+            'small' => 'จัดการ'
         );
         $data_nav['breadcrumb'] = array(
             '0' => array(
-                'icon' => 'fa fa-home fa-fw',
-                'text' => 'หน้าหลัก',
-                'link' => 'C1_home'
-            )
+                'icon' => 'fa fa-tags',
+                'text' => 'สินค้า',
+                'link' => 'backend/product'
+            ),
+            '1' => array(
+                'icon' => '',
+                'text' => 'จัดการ',
+                'link' => ''
+            ),
         );
-        $id_users = $this->session->userdata('id_users');
-
-//        $this->m_template->set_Title('ทดสอบ');
+        //$this->m_template->set_Title('ทดสอบ');
         $this->m_template->set_Breadcrumb($data_nav);
-//        $this->m_template->set_Debug($data['list_accept']);
-//        $this->m_template->set_Debug($data['list_analysis']);
-//        $this->m_template->set_Debug($this->session->userdata());
-        $this->m_template->set_Content('admin/home/main', $data);
+        //$this->m_template->set_Debug($data);
+        $this->m_template->set_Content('backend/admin/product', $data);
         $this->m_template->showAdmin();
     }
 

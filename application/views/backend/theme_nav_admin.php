@@ -72,19 +72,47 @@
                     <i class="fa fa-home"></i> <span>หน้าหลัก</span>
                 </a>
             </li>
-            <li <?= ($page == 'customer') ? 'class="active"' : '' ?>>
-                <a href="<?= base_url('backend/customer') ?>">
+            <li class="treeview <?= ($page == 'invoice') ? 'active' : '' ?>">
+                <a href="#">
                     <i class="fa fa-cart-plus"></i> <span>ใช้บริการ</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li <?= ($subpage == 'create_customer') ? 'class="active"' : '' ?>>
+                        <a href="<?= base_url('backend/invoice/create_customer') ?>"><i class="fa fa-circle-o"></i> ลูกค้าที่เป็นสมาชิก</a>
+                    </li>
+                    <li <?= ($subpage == 'create_new') ? 'class="active"' : '' ?>>
+                        <a href="<?= base_url('backend/invoice/create_new') ?>"><i class="fa fa-circle-o"></i> ลูกค้าที่ไม่เป็นสมาชิก</a>
+                    </li>
+                    <li <?= ($subpage == 'process') ? 'class="active"' : '' ?>>
+                        <a href="<?= base_url('backend/invoice/process') ?>"><i class="fa fa-circle-o"></i> รายการกำลังดำเนินการ</a>
+                    </li>
+                    <li <?= ($subpage == 'complete') ? 'class="active"' : '' ?>>
+                        <a href="<?= base_url('backend/invoice/complete') ?>"><i class="fa fa-circle-o"></i> รายการเสร็จแล้ว</a>
+                    </li>
+                </ul>
             </li>
-            <li <?= ($page == 'customer') ? 'class="active"' : '' ?>>
-                <a href="<?= base_url('backend/customer') ?>">
+            <li class="treeview <?= ($page == 'customer') ? 'active' : '' ?>">
+                <a href="#">
                     <i class="fa fa-users"></i> <span>ลูกค้า</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li <?= ($subpage == 'list_customer') ? 'class="active"' : '' ?>>
+                        <a href="<?= base_url('backend/customer/list_customer') ?>"><i class="fa fa-circle-o"></i> ข้อมูลพื้นฐาน</a>
+                    </li>
+                    <li <?= ($subpage == 'list_car') ? 'class="active"' : '' ?>>
+                        <a href="<?= base_url('backend/customer/list_car') ?>"><i class="fa fa-circle-o"></i> ข้อมูลรถ</a>
+                    </li>
+                </ul>
             </li>
-            <li <?= ($page == 'promotion') ? 'class="active"' : '' ?>>
-                <a href="<?= base_url('backend/promotion') ?>">
-                    <i class="fa fa-bullhorn"></i> <span>โปรโมชั่น</span>
+            <li <?= ($page == 'product') ? 'class="active"' : '' ?>>
+                <a href="<?= base_url('backend/product') ?>">
+                    <i class="fa fa-tags"></i> <span>สินค้า</span>
                 </a>
             </li>
             <li <?= ($page == 'service') ? 'class="active"' : '' ?>>
@@ -92,9 +120,19 @@
                     <i class="fa fa-book"></i> <span>บริการ</span>
                 </a>
             </li>
+            <li <?= ($page == 'promotion') ? 'class="active"' : '' ?>>
+                <a href="<?= base_url('backend/promotion') ?>">
+                    <i class="fa fa-bullhorn"></i> <span>โปรโมชั่น</span>
+                </a>
+            </li>
             <li <?= ($page == 'admin') ? 'class="active"' : '' ?>>
                 <a href="<?= base_url('backend/admin') ?>">
                     <i class="fa fa-user-secret"></i> <span>เจ้าหน้าที่</span>
+                </a>
+            </li>
+            <li <?= ($page == 'system') ? 'class="active"' : '' ?>>
+                <a href="<?= base_url('backend/system') ?>">
+                    <i class="fa fa-gears"></i> <span>ตั้งค่าข้อมูลร้าน</span>
                 </a>
             </li>
         </ul>

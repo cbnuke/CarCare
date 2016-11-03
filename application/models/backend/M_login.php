@@ -76,7 +76,7 @@ class M_login extends CI_Model {
             $session['User_Lastname'] = $temp_user['Customer_Lastname'];
             $session['User_Email'] = $temp_user['Customer_Email'];
             if ($temp_user['Customer_Picture'] == NULL || $temp_user['Customer_Picture'] == "NULL") {
-                $session['User_Picture'] = 'avatar5.png';
+                $session['User_Picture'] = 'default.png';
             } else {
                 $session['User_Picture'] = $temp_user['Customer_Picture'];
             }
@@ -89,7 +89,7 @@ class M_login extends CI_Model {
             $session['User_Lastname'] = $temp_admin['Admin_Lastname'];
             $session['User_Email'] = $temp_admin['Admin_Email'];
             if ($temp_user['Admin_Picture'] == NULL || $temp_admin['Admin_Picture'] == "NULL") {
-                $session['User_Picture'] = 'avatar5.png';
+                $session['User_Picture'] = 'default.png';
             } else {
                 $session['User_Picture'] = $temp_admin['Admin_Picture'];
             }
